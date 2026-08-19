@@ -1,0 +1,45 @@
+{
+  "name": "oh-my-cli",
+  "version": "0.1.0",
+  "description": "Небольшой CLI с интеллектуальным агентом для работы с кодом",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwen-code-dev-bot/oh-my-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qwen-code-dev-bot/oh-my-cli/issues"
+  },
+  "homepage": "https://github.com/qwen-code-dev-bot/oh-my-cli#readme",
+  "bin": {
+    "oh-my-cli": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration && npm run test:desktop",
+    "test:desktop": "npm run build && timeout 30 xvfb-run -a electron --no-sandbox --disable-gpu scripts/test-desktop.mjs",
+    "smoke": "vitest run tests/smoke",
+    "desktop": "npm run build && electron .",
+    "postbuild": "node scripts/build-desktop.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "openai": "^4.96.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "electron": "^43.1.1",
+    "esbuild": "^0.28.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  },
+  "main": "dist/desktop/main.js"
+}
