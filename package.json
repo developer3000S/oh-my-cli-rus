@@ -35,11 +35,11 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
-    "electron": "^43.1.1",
+    "electron": "^43.8.1",
     "esbuild": "^0.28.1",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.4"
+    "vitest": "^5.0.5"
   },
   "main": "dist/desktop/main.js"
 }
